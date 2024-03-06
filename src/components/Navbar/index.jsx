@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import {Navbar, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link} from "@nextui-org/react";
+import {Helmet} from 'react-helmet';
 
 const Navs = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [pageName, setPageName] = useState("Home")
   const [activeScreen, setActiveScreen] = useState({
     home: "foreground",
-    about: "foreground",
     resume: "foreground",
     projects: "foreground",
     contact: "foreground"
@@ -19,7 +20,6 @@ const Navs = () => {
         setActiveScreen(prevState => ({
           ...prevState,
           home: "primary",
-          about: "foreground",
           resume: "foreground",
           projects: "foreground",
           contact: "foreground"
@@ -29,7 +29,6 @@ const Navs = () => {
         setActiveScreen(prevState => ({
           ...prevState,
           home: "foreground",
-          about: "primary",
           resume: "foreground",
           projects: "foreground",
           contact: "foreground"
@@ -39,7 +38,6 @@ const Navs = () => {
         setActiveScreen(prevState => ({
           ...prevState,
           home: "foreground",
-          about: "foreground",
           resume: "primary",
           projects: "foreground",
           contact: "foreground"
@@ -49,7 +47,6 @@ const Navs = () => {
         setActiveScreen(prevState => ({
           ...prevState,
           home: "foreground",
-          about: "foreground",
           resume: "foreground",
           projects: "primary",
           contact: "foreground"
@@ -59,7 +56,6 @@ const Navs = () => {
         setActiveScreen(prevState => ({
           ...prevState,
           home: "foreground",
-          about: "foreground",
           resume: "foreground",
           projects: "foreground",
           contact: "primary"
@@ -69,7 +65,6 @@ const Navs = () => {
         setActiveScreen(prevState => ({
           ...prevState,
           home: "foreground",
-          about: "foreground",
           resume: "foreground",
           projects: "foreground",
           contact: "foreground"
@@ -77,16 +72,13 @@ const Navs = () => {
     }
   }, [path])
 
-  const menuItems = [
-    "HOME",
-    "ABOUT ME",
-    "RESUME",
-    "PROJECTS",
-    "CONTACT"
-  ];
+
   return (
     <>
-      <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth='full' height="7rem" className='shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-white'>
+      <Helmet>
+        <title>{pageName}</title>
+      </Helmet>
+      <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth='full' height="7rem" shouldHideOnScroll className='shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-white'>
         <NavbarContent>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -94,14 +86,9 @@ const Navs = () => {
           />
         </NavbarContent>
         <NavbarContent className="hidden sm:flex gap-5 me-5" justify="end">
-          <NavbarItem>
+          <NavbarItem onClick={() => setPageName("HOME")}>
             <Link color={activeScreen.home} href="/">
               HOME
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link href="/about" color={activeScreen.about}>
-              ABOUT ME
             </Link>
           </NavbarItem>
           <NavbarItem>
@@ -121,18 +108,26 @@ const Navs = () => {
           </NavbarItem>
         </NavbarContent>
         <NavbarMenu>
-          {menuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                color="foreground"
-                className="w-full"
-                href="#"
-                size="lg"
-              >
-                {item}
-              </Link>
-            </NavbarMenuItem>
-          ))}
+          <NavbarMenuItem>
+            <Link color={activeScreen.home} className="w-full" href="/" size="lg">
+              HOME
+            </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link color={activeScreen.resume} className="w-full" href="/" size="lg">
+              RESUME
+            </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link color={activeScreen.projects} className="w-full" href="/" size="lg">
+              PROJECTS
+            </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link color={activeScreen.contact} className="w-full" href="/" size="lg">
+              CONTACT
+            </Link>
+          </NavbarMenuItem>
         </NavbarMenu>
       </Navbar>
     </>
