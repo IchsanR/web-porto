@@ -25,15 +25,6 @@ const Navs = () => {
           contact: "foreground"
         }));
         break;
-      case "/about":
-        setActiveScreen(prevState => ({
-          ...prevState,
-          home: "foreground",
-          resume: "foreground",
-          projects: "foreground",
-          contact: "foreground"
-        }));
-        break;
       case "/resume":
         setActiveScreen(prevState => ({
           ...prevState,
@@ -78,7 +69,7 @@ const Navs = () => {
       <Helmet>
         <title>{pageName}</title>
       </Helmet>
-      <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth='full' height="7rem" shouldHideOnScroll className='shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-white'>
+      <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth='full' height="7rem" className='shadow-[0_0_10px_rgba(0,0,0,0.3)] bg-white'>
         <NavbarContent>
           <NavbarMenuToggle
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -92,7 +83,7 @@ const Navs = () => {
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color={activeScreen.resume} href="#">
+            <Link color={activeScreen.resume} href="/resume">
               RESUME
             </Link>
           </NavbarItem>

@@ -3,8 +3,9 @@ import Navs from '../components/Navbar'
 import Footer from '../components/Footer'
 
 const Root = ({children}) => {
+
   return (
-    <div className='bg-[#98E4D9]'>
+    <div className='bg-[#cd8b62]'>
       <Navs />
       {children}
       <Footer />
