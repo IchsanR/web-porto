@@ -1,7 +1,7 @@
 "use client"
 
 import {FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs} from 'react-icons/fa'
-import {SiTailwindcss, SiNextdotjs, SiExpress} from 'react-icons/si'
+import {SiTailwindcss, SiNextdotjs, SiExpress, SiPostgresql, SiGit, SiTypescript, SiRedis} from 'react-icons/si'
 import {motion} from 'framer-motion'
 
 // component
@@ -98,6 +98,10 @@ const skills = {
       name: "javascript"
     },
     {
+      icon: <SiTypescript />,
+      name: "typescript"
+    },
+    {
       icon: <FaReact />,
       name: "react.js"
     },
@@ -116,6 +120,18 @@ const skills = {
     {
       icon: <SiExpress />,
       name: "express.js"
+    },
+    {
+      icon: <SiPostgresql />,
+      name: "postgresql"
+    },
+    {
+      icon: <SiGit />,
+      name: "git"
+    },
+    {
+      icon: <SiRedis />,
+      name: "redis"
     },
   ]
 }
@@ -196,7 +212,7 @@ const Resume = () => {
                   <h3 className='text-4xl font-bold'>{skills.title}</h3>
                   <p className='max-w-[600p] text-white/60 mx-auto xl:mx-0'>{skills.description}</p>
                 </div>
-                <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]'>
+                <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px] mb-6'>
                   {skills.skillList.map((item, index) => {
                     return (
                       <li key={index}>
