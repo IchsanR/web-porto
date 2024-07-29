@@ -1,7 +1,7 @@
 "use client"
 
-import {FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs} from 'react-icons/fa'
-import {SiTailwindcss, SiNextdotjs, SiExpress, SiPostgresql, SiGit, SiTypescript, SiRedis} from 'react-icons/si'
+import {FaJs, FaReact, FaNodeJs} from 'react-icons/fa'
+import {SiTailwindcss, SiNextdotjs, SiExpress, SiTypescript, SiRedis} from 'react-icons/si'
 import {motion} from 'framer-motion'
 
 // component
@@ -12,11 +12,11 @@ import {ScrollArea} from '@/components/ui/scroll-area'
 
 const about = {
   title: "About me",
-  description: "Currently working as Frontend Developer at Bank Rakyat Indonesia. Possess the necessary skills as a Frontend Developer, including HTML5, CSS3, Javascript, Typescript, Bootstrap, Tailwind CSS, React JS, React Native, Next JS, Node JS, and Express JS. Capable of working effectively and efficiently both in a team and individually. Enthusiastic about learning new things to enhance existing skills",
+  description: "Currently working as Frontend Developer at Bank Rakyat Indonesia. Possess the necessary skills as a Software Developer. Capable of working effectively and efficiently both in a team and individually. Enthusiastic about learning new things to enhance existing skills",
   info: [
     {
       fieldName: "Name",
-      fieldValue: "Ichsan Ramadhan Mokodompit"
+      fieldValue: "Ichsan Ramadhan"
     },
     {
       fieldName: "Phone",
@@ -27,20 +27,20 @@ const about = {
       fieldValue: "2 Years"
     },
     {
-      fieldName: "Nationality",
-      fieldValue: "Indonesia"
-    },
-    {
       fieldName: "Email",
       fieldValue: "ichsanramadhan.work@gmail.com"
     },
     {
-      fieldName: "Freelance",
-      fieldValue: "Available"
+      fieldName: "Nationality",
+      fieldValue: "Indonesia"
     },
     {
       fieldName: "Languages",
       fieldValue: "Indonesia, English"
+    },
+    {
+      fieldName: "Freelance",
+      fieldValue: "Available"
     },
   ]
 }
@@ -86,14 +86,6 @@ const skills = {
   description: "Here's the tech stacks that I mastered",
   skillList: [
     {
-      icon: <FaHtml5 />,
-      name: "html 5"
-    },
-    {
-      icon: <FaCss3 />,
-      name: "css 3"
-    },
-    {
       icon: <FaJs />,
       name: "javascript"
     },
@@ -120,14 +112,6 @@ const skills = {
     {
       icon: <SiExpress />,
       name: "express.js"
-    },
-    {
-      icon: <SiPostgresql />,
-      name: "postgresql"
-    },
-    {
-      icon: <SiGit />,
-      name: "git"
     },
     {
       icon: <SiRedis />,
@@ -212,13 +196,13 @@ const Resume = () => {
                   <h3 className='text-4xl font-bold'>{skills.title}</h3>
                   <p className='max-w-[600p] text-white/60 mx-auto xl:mx-0'>{skills.description}</p>
                 </div>
-                <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px] mb-6'>
+                <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px] lg:mb-4'>
                   {skills.skillList.map((item, index) => {
                     return (
                       <li key={index}>
                         <TooltipProvider delayDuration={100}>
                           <Tooltip>
-                            <TooltipTrigger className='w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group'>
+                            <TooltipTrigger className='w-full h-[130px] bg-[#232329] rounded-xl flex justify-center items-center group'>
                               <div className='text-6xl group-hover:text-accent transition-all duration-300'>{item.icon}</div>
                             </TooltipTrigger>
                             <TooltipContent>
@@ -234,8 +218,21 @@ const Resume = () => {
             </TabsContent>
 
             {/* about */}
-            <TabsContent value="about" className="w-full">
-              about
+            <TabsContent value="about" className="w-full text-center xl:text-left">
+              <div className='flex flex-col gap-[30px]'>
+                <h3 className='text-4xl font-bold'>{about.title}</h3>
+                <p className='max-w-[600px] text-white/60 mx-auto xl:mx-0'>{about.description}</p>
+                <ul className='grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0'>
+                  {about.info.map((item, index) => {
+                    return (
+                      <li key={index} className='flex items-center justify-center xl:justify-start gap-4'>
+                        <span className='text-white/60'>{item.fieldName}</span>
+                        <span className='text-xl'>{item.fieldValue}</span>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
             </TabsContent>
           </div>
         </Tabs>
